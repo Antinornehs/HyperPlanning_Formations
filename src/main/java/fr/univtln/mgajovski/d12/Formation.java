@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * Created by Maxime on 20/10/2015.
  */
 public class Formation implements Serializable{
+
+    private static Logger logger = Logger.getLogger("Formation.class");
 
     public static Map<String, Formation> formationMap
             = new HashMap<String, Formation>();
@@ -26,6 +29,7 @@ public class Formation implements Serializable{
         this.label = label;
         this.id = grade + " " + label;
         formationMap.put(id, this);
+        logger.info("Formation created successfully !");
     }
 
     public List<TeachingUnit> getTeachingUnits() {

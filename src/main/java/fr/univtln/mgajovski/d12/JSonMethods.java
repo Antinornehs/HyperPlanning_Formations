@@ -7,32 +7,38 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Maxime on 26/10/2015.
  */
 public class JSonMethods {
 
-    public static void toJSon(Collection<Formation> formationCollection){
+    private static Logger logger = Logger.getLogger("JSonMethods.class");
+
+    public static void toJSon(Collection<Formation> formationCollection) throws IOException {
         Gson gson = new Gson();
 
         String jSonObject = gson.toJson(formationCollection);
 
         try{
-            FileWriter writer = new FileWriter(Consts.RESOURCES_PATH + "json2.json");
+            FileWriter writer = new FileWriter(Consts.JSON_PATH);
             writer.write(jSonObject);
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Ecriture impossible !");
+            throw new IOException();
         }
     }
-    public static void toFormation(String jSonPath){
+
+    public static void toFormation() throws IOException {
 
         Gson gson = new Gson();
-
+        BufferedReader bufferedReader = null;
         try {
-            BufferedReader bufferedReader= new BufferedReader(
-                    new FileReader(jSonPath));
+            bufferedReader = new BufferedReader(
+                    new FileReader(Consts.JSON_PATH));
             Formation formations[] = gson.fromJson(bufferedReader, Formation[].class);
 
             for(Formation currentFormation : formations){
@@ -42,7 +48,8 @@ public class JSonMethods {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Lecture du fichier " + Consts.JSON_FILE_NAME + " impossible !\n");
+            throw new IOException();
         }
 
     }

@@ -5,11 +5,15 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * Created by Maxime on 20/10/2015.
  */
 public class TeachingUnit implements Serializable{
+
+
+    private static Logger logger = Logger.getLogger("TeachingUnit.class");
 
     public static Map<String, TeachingUnit> teachingUnitMap
             = new HashMap<String, TeachingUnit>();
@@ -25,6 +29,8 @@ public class TeachingUnit implements Serializable{
         this.code           = code;
         this.label          = label;
         teachingUnitMap.put(code, this);
+        logger.info("TeachingUnit created successfully !");
+
     }
 
     public String getLabel() {
