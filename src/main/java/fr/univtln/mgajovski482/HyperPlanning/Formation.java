@@ -3,25 +3,19 @@ package fr.univtln.mgajovski482.HyperPlanning;
 import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.Teacher;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 
 /**
  * Created by Maxime on 20/10/2015.
  */
-public class Formation implements Serializable{
+public class Formation{
 
     private static Logger logger = Logger.getLogger("Formation.class");
 
-    public static Map<String, Formation> formationMap
-            = new HashMap<String, Formation>();
-
-    private List<TeachingUnit> teachingUnits
-            = new ArrayList<TeachingUnit>();
+    public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
+    private List<TeachingUnit> teachingUnits = new ArrayList<TeachingUnit>();
 
     private final String id;
     private final String grade;
@@ -68,6 +62,11 @@ public class Formation implements Serializable{
         Formation formation = (Formation) o;
         return id.equals(formation.id);
 
+    }
+
+    public static String[] getFormationsLabel(){
+        Set<String> formationKeySet = formationMap.keySet();
+        return formationKeySet.toArray(new String[formationKeySet.size()]);
     }
 
     @Override
