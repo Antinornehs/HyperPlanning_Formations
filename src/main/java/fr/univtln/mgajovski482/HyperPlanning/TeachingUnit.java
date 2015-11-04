@@ -79,4 +79,21 @@ public class TeachingUnit implements Serializable{
         stringBuilder.append("Description : "       + descriptions  + "\n");
         return stringBuilder.toString();
     }
+
+
+    public String htmlToString() {
+        String[] descriptions       =  null;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("<br><u>"  + code + " : "  + label + "</u><br>");
+        stringBuilder.append("ECTS : "  + ects          + "<br>");
+        stringBuilder.append("Heures dispensees : " + hoursProvided + "<br>");
+        stringBuilder.append("Description : <br>");
+
+        if(this.descriptions != null && (descriptions = this.descriptions.split(",")) != null)
+            for(String description : descriptions)
+                stringBuilder.append("&emsp;" + description + "<br>");
+
+        return stringBuilder.toString();
+    }
 }
