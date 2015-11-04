@@ -1,8 +1,11 @@
 package fr.univtln.mgajovski482.HyperPlanning;
 
+import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.Teacher;
+
 import java.io.Serializable;
 import java.util.*;
 import java.util.logging.Logger;
+
 
 /**
  * Created by Maxime on 20/10/2015.
@@ -17,11 +20,13 @@ public class Formation{
     private final String id;
     private final String grade;
     private final String label;
+    private final Teacher teacher;
 
-    public Formation(String grade, String label){
+    public Formation(String grade, String label, Teacher teacher){
         this.grade = grade;
         this.label = label;
         this.id = grade + " " + label;
+        this.teacher = teacher;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
