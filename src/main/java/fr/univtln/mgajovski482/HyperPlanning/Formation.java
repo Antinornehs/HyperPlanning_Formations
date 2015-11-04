@@ -1,11 +1,14 @@
 package fr.univtln.mgajovski482.HyperPlanning;
 
+import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.Teacher;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+
 
 /**
  * Created by Maxime on 20/10/2015.
@@ -23,11 +26,13 @@ public class Formation implements Serializable{
     private final String id;
     private final String grade;
     private final String label;
+    private final Teacher teacher;
 
-    public Formation(String grade, String label){
+    public Formation(String grade, String label, Teacher teacher){
         this.grade = grade;
         this.label = label;
         this.id = grade + " " + label;
+        this.teacher = teacher;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
