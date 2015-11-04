@@ -26,13 +26,13 @@ public class Formation implements Serializable{
     private final String id;
     private final String grade;
     private final String label;
-    private final Teacher teacher;
+    private final Teacher director;
 
     public Formation(String grade, String label, Teacher teacher){
         this.grade = grade;
         this.label = label;
         this.id = grade + " " + label;
-        this.teacher = teacher;
+        this.director = teacher;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
@@ -58,6 +58,8 @@ public class Formation implements Serializable{
     public String getId() {
         return id;
     }
+
+    public Teacher getDirector() { return director; }
 
     @Override
     public boolean equals(Object o) {
