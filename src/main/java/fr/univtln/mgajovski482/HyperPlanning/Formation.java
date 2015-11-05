@@ -1,5 +1,6 @@
 package fr.univtln.mgajovski482.HyperPlanning;
 
+import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.DirectorOfFormation;
 import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.Teacher;
 
 import java.io.Serializable;
@@ -8,25 +9,42 @@ import java.util.logging.Logger;
 
 
 /**
- * Created by Maxime on 20/10/2015.
+ * <b>Formation est la classe representant les différentes formations.</b>
+ * <p>
+ * Une formation est caracterisee par les informations suivantes:
+ * <ul>
+ *     <li>Un niveau (grade)</li>
+ *     <li>Un intitule (label)</li>
+ *     <li>Un id unique (qui est la concatenation des deux chaines precedantes)</li>
+ *     <li>Des unites d'enseignements(teachingUnits)</li>
+ *     <li>Un directeur de formation (directorOfFormation)</li>
+ * </ul>
+ *
+ * <p>
+ * Les differentes formations sont stockees à partir d'une Map.
+ *
+ *  @author Maxime
  */
+
 public class Formation{
 
     private static Logger logger = Logger.getLogger("Formation.class");
 
     public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
     private List<TeachingUnit> teachingUnits = new ArrayList<TeachingUnit>();
-
     private final String id;
     private final String grade;
     private final String label;
-    private final Teacher director;
+    private final DirectorOfFormation directorOfFormation;
 
-    public Formation(String grade, String label, Teacher teacher){
-        this.grade = grade;
-        this.label = label;
-        this.id = grade + " " + label;
-        this.director = teacher;
+    public Formation(
+            String grade,
+            String label,
+            DirectorOfFormation directorOfFormation){
+        this.grade                  = grade;
+        this.label                  = label;
+        this.id                     = grade + " " + label;
+        this.directorOfFormation    = directorOfFormation;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
@@ -53,7 +71,7 @@ public class Formation{
         return id;
     }
 
-    public Teacher getDirector() { return director; }
+    public DirectorOfFormation getDirectorOfFormation() { return directorOfFormation; }
 
     @Override
     public boolean equals(Object o) {
@@ -77,7 +95,8 @@ public class Formation{
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\nNom de la formation : " + id + "\n");
+        stringBuilder.append("\nNom de la formation : "     + id + "\n");
+        stringBuilder.append("Directeur de formation : "    + directorOfFormation + "\n");
         stringBuilder.append(teachingUnits);
         return stringBuilder.toString();
 

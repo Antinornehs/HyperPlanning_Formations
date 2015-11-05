@@ -11,7 +11,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by Maxime on 26/10/2015.
+ * <b>JSonMethods est une classe disposant de méthodes permettant de :</b>
+ *
+ * <ul>
+ *     <li>De recuperer des formations au format JSon pour les ajouter dans la Map
+ *     correspondant aux formations</li>
+ *     <li>De transformer les formations creees en JSon afin de les sauvegardees</li>
+ * </ul>
+ *
+ *  @author Maxime
  */
 public class JSonMethods {
 

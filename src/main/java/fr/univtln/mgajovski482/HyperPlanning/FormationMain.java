@@ -4,8 +4,14 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 /**
- * Created by Maxime on 26/10/2015.
+ * <b>FormationMain est la classe principale (singleton) du package Formations.</b>
+ *
+ * <p>
+ *     Cette classe contient un logger qui nous informe si le package a bien ete initialise
+ *
+ *  @author Maxime
  */
+
 public class FormationMain {
 
     private static Logger logger = Logger.getLogger("FormationMain.class");

@@ -8,8 +8,23 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 /**
- * Created by Maxime on 20/10/2015.
+ * <b>TeachingUnit est la classe representant les unites d'enseignements.</b>
+ * <p>
+ * Une unite d'enseignement est caracterisee par :
+ * <ul>
+ *     <li>Un code unique (code)</li>
+ *     <li>Un intitule (label)</li>
+ *     <li>L'ECTS indiquant le coefficient de l'UE dans une formation</li>
+ *     <li>Le nombre d'heures dispense pendant le semestre (hoursProvided)</li>
+ *     <li>Des descriptions supplémentaires (descriptions)</li>
+ * </ul>
+ *
+ * <p>
+ * Les differentes UEs sont stockees a partir d'une Map.
+ *
+ *  @author Maxime
  */
+
 public class TeachingUnit implements Serializable{
 
 
@@ -68,6 +83,22 @@ public class TeachingUnit implements Serializable{
 
     public String getCode() {
         return code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TeachingUnit)) return false;
+
+        TeachingUnit that = (TeachingUnit) o;
+
+        return code.equals(that.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
     }
 
     @Override

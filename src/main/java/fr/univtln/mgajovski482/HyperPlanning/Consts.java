@@ -3,7 +3,15 @@ package fr.univtln.mgajovski482.HyperPlanning;
 import java.io.File;
 
 /**
- * Created by Maxime on 20/10/2015.
+ * <b>Consts est une classe contenant toutes les constantes propres à son package</b>
+ * <p>
+ * Il contient notamment des constantes liees aux:
+ * <ul>
+ *     <li>Jsons de formations</li>
+ *     <li>Autres...</li>
+ *</ul>
+ *
+ * @author Maxime
  */
 public class Consts {
 
