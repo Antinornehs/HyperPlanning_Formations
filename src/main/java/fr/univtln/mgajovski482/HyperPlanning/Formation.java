@@ -30,12 +30,12 @@ public class Formation{
 
     private static Logger logger = Logger.getLogger("Formation.class");
 
-    public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
+      public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
     private List<TeachingUnit> teachingUnits = new ArrayList<TeachingUnit>();
     private final String id;
     private final String grade;
     private final String label;
-    private final DirectorOfFormation directorOfFormation;
+    private DirectorOfFormation directorOfFormation;
 
     public Formation(
             String grade,
@@ -72,6 +72,11 @@ public class Formation{
     }
 
     public DirectorOfFormation getDirector() { return directorOfFormation; }
+
+
+    public void setDirectorOfFormation(DirectorOfFormation directorOfFormation) {
+        this.directorOfFormation = directorOfFormation;
+    }
 
     @Override
     public boolean equals(Object o) {

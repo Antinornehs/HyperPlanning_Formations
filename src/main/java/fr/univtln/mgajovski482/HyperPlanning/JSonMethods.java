@@ -1,12 +1,14 @@
 package fr.univtln.mgajovski482.HyperPlanning;
 
 import com.google.gson.Gson;
+import fr.univtln.mgajovski482.HyperPlanning.User.RegisteredUser.DirectorOfFormation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +24,12 @@ import java.util.logging.Logger;
  *  @author Maxime
  */
 public class JSonMethods {
+
+    private static DirectorOfFormation[] directorOfFormations =
+        DirectorOfFormation.staticDirectorOfFormationMap.values().toArray(new DirectorOfFormation[0]);
+
+    private static Random random
+            = new Random();
 
     private static Logger logger = Logger.getLogger("JSonMethods.class");
 
@@ -42,6 +50,7 @@ public class JSonMethods {
 
     public static void toFormation() throws IOException {
 
+        int randomDirectorIndex;
         Gson gson = new Gson();
         BufferedReader bufferedReader = null;
         try {
@@ -50,6 +59,9 @@ public class JSonMethods {
             Formation formations[] = gson.fromJson(bufferedReader, Formation[].class);
 
             for(Formation currentFormation : formations){
+
+                randomDirectorIndex = random.nextInt(directorOfFormations.length);
+                currentFormation.setDirectorOfFormation(directorOfFormations[randomDirectorIndex]);
                 Formation.formationMap.put(currentFormation.getId(), currentFormation);
                 for(TeachingUnit currentTeachUnit : currentFormation.getTeachingUnits())
                     TeachingUnit.teachingUnitMap.put(currentTeachUnit.getCode(), currentTeachUnit);
