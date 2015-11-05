@@ -40,11 +40,11 @@ public class Formation{
     public Formation(
             String grade,
             String label,
-            DirectorOfFormation directorOfFormation){
+            Teacher directorOfFormation){
         this.grade                  = grade;
         this.label                  = label;
         this.id                     = grade + " " + label;
-        this.directorOfFormation    = directorOfFormation;
+        this.directorOfFormation    = (DirectorOfFormation) directorOfFormation;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
@@ -71,7 +71,7 @@ public class Formation{
         return id;
     }
 
-    public DirectorOfFormation getDirectorOfFormation() { return directorOfFormation; }
+    public DirectorOfFormation getDirector() { return directorOfFormation; }
 
     @Override
     public boolean equals(Object o) {
