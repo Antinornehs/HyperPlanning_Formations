@@ -35,7 +35,7 @@ public class Formation{
     private final String id;
     private final String grade;
     private final String label;
-    private DirectorOfFormation directorOfFormation;
+    private Teacher directorOfFormation;
 
     public Formation(
             String grade,
@@ -44,7 +44,7 @@ public class Formation{
         this.grade                  = grade;
         this.label                  = label;
         this.id                     = grade + " " + label;
-        this.directorOfFormation    = (DirectorOfFormation) directorOfFormation;
+        this.directorOfFormation    = directorOfFormation;
         formationMap.put(id, this);
         logger.info("Formation created successfully !");
     }
@@ -71,7 +71,7 @@ public class Formation{
         return id;
     }
 
-    public DirectorOfFormation getDirector() { return directorOfFormation; }
+    public Teacher getDirector() { return directorOfFormation; }
 
 
     public void setDirectorOfFormation(DirectorOfFormation directorOfFormation) {
