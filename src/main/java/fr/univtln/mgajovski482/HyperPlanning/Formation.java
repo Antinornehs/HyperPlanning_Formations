@@ -99,9 +99,12 @@ public class Formation{
 
     @Override
     public String toString() {
+        String lastName  = directorOfFormation.getRuPersonalLogs().getLastName();
+        String firstName =  directorOfFormation.getRuPersonalLogs().getFirstName();
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\nNom de la formation : "     + id + "\n");
-        stringBuilder.append("Directeur de formation : "    + directorOfFormation + "\n");
+        stringBuilder.append("Directeur de formation : " + lastName  + " " + firstName);
         stringBuilder.append(teachingUnits);
         return stringBuilder.toString();
 
