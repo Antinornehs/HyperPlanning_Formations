@@ -30,7 +30,7 @@ public class Formation{
 
     private static Logger logger = Logger.getLogger("Formation.class");
 
-      public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
+    public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
     private List<TeachingUnit> teachingUnits = new ArrayList<TeachingUnit>();
     private final String id;
     private final String grade;
