@@ -15,7 +15,8 @@ public class StudentFormationInitializer {
                 Arrays.asList(Student.staticStudentMap.values().toArray(new Student[0]));
 
         for(Student currentStudent : studentList){
-            currentStudent.setFormation(Formation.getRandomFormation());
+            Formation form = Formation.getRandomFormation();
+            currentStudent.setFormation(form);
         }
     }
 }
