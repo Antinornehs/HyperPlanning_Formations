@@ -86,7 +86,14 @@ public class Formation{
         return id.equals(formation.id);
 
     }
+    public static Formation getRandomFormation (){
+        Random random = new Random();
 
+        List<Formation> formations =
+                Arrays.asList(formationMap.values().toArray(new Formation[0]));
+        return formations.get(random.nextInt(formations.size()));
+
+    }
     public static String[] getFormationsLabel(){
         Set<String> formationKeySet = formationMap.keySet();
         return formationKeySet.toArray(new String[formationKeySet.size()]);

@@ -24,4 +24,5 @@ public class Consts {
 
     public final static String JSON_PATH
             = RESOURCES_PATH + JSON_FILE_NAME;
+
 }

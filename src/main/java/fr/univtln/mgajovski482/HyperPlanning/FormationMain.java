@@ -21,6 +21,7 @@ public class FormationMain {
     public FormationMain() throws IOException {
 
         JSonMethods.toFormation();
+        StudentFormationInitializer.initFormationIntoStudents();
         logger.info("Formations Package Initialized !");
     }
 
