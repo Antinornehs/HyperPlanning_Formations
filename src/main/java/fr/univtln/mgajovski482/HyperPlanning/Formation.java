@@ -30,17 +30,17 @@ public class Formation{
 
     private static Logger logger = Logger.getLogger("Formation.class");
 
-      public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
+    public static Map<String, Formation> formationMap = new HashMap<String, Formation>();
     private List<TeachingUnit> teachingUnits = new ArrayList<TeachingUnit>();
     private final String id;
     private final String grade;
     private final String label;
-    private DirectorOfFormation directorOfFormation;
+    private Teacher directorOfFormation;
 
     public Formation(
             String grade,
             String label,
-            DirectorOfFormation directorOfFormation){
+            Teacher directorOfFormation){
         this.grade                  = grade;
         this.label                  = label;
         this.id                     = grade + " " + label;
@@ -71,7 +71,7 @@ public class Formation{
         return id;
     }
 
-    public DirectorOfFormation getDirectorOfFormation() { return directorOfFormation; }
+    public Teacher getDirector() { return directorOfFormation; }
 
 
     public void setDirectorOfFormation(DirectorOfFormation directorOfFormation) {
